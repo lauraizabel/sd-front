@@ -9,9 +9,9 @@ import { Container, Content, LogContainer, LogContent } from "./note-styles";
 const Note: React.FC = () => {
   const path = new URLSearchParams(window.location.search).get("path");
   const [actualValue, setActualValue] = useState<string>("");
-  const debouncedValue = useDebounce(actualValue, 2000);
+  const debouncedValue = useDebounce(actualValue, 1000);
   const { data } = useQuery(["note"], async () => await getNote(path || ""), {
-    refetchInterval: 5000,
+    refetchInterval: 1200,
   });
 
   const renderLogs = () => {
